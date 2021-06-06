@@ -9,17 +9,17 @@ namespace WishList.Models.AccountViewModels
     public class RegisterViewModel
     {
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
-        [MaxLength(100)]
-        [MinLength(8)]
+        [StringLength(100,MinimumLength =8)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password))]
+        [Compare("Password")]
         public string ConfirmPassword { get; set; }
     }
 }
